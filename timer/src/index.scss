@@ -1,0 +1,149 @@
+// Variables
+$background: #121232;
+$background-countdown-boxes: #24243e;
+$text-boxes: #ff5f8f;
+$main-countdown-text: #ff5f8f;
+$supporting-labels: #a6a6b0;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+//   outline:1px solid red;
+}
+
+body {
+  background-color: $background;
+  color: $text-boxes;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.wrapper {
+  width: 80%;
+  margin-inline: auto;
+  margin-block: 130px;
+  padding: 20px;
+}
+h2 {
+  color: $supporting-labels;
+  width: fit-content;
+  margin-inline: auto;
+  margin-bottom: 20px;
+}
+.length-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.break-length {
+  text-align: center;
+  line-height: 30px;
+}
+.session-length {
+  @extend .break-length;
+}
+span {
+  font-size: 2rem;
+}
+
+.bx {
+  color: $text-boxes;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-inline: 8px;
+  transition: 300ms;
+}
+.bx:hover,
+.bx:hover {
+  color: hsl(342, 100%, 79%);
+}
+.bx:active,
+.bx:active {
+  color: hsl(342, 100%, 89%);
+}
+
+
+.timer {
+  display: flex;
+  gap: 20px;
+}
+
+.flip-unit {
+  text-align: center;
+}
+
+.card {
+  position: relative;
+  width: 100px;
+  height: 120px;
+  perspective: 1000px;
+  margin-bottom: 10px;
+}
+
+.card .top,
+.card .bottom {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  line-height: 60px;
+  text-align: center;
+  background: #e91e63;
+  border-radius: 5px;
+  font-size: 2rem;
+  backface-visibility: hidden;
+}
+
+.card .top {
+  top: 0;
+  transform-origin: bottom;
+  transform: rotateX(0deg);
+  z-index: 2;
+}
+
+.card .bottom {
+  bottom: 0;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+}
+
+.card.flip .top {
+  animation: flip-top 0.5s forwards;
+}
+
+.card.flip .bottom {
+  animation: flip-bottom 0.5s forwards;
+}
+.timer{
+  width:fit-content;
+  margin:auto;
+}
+
+@keyframes flip-top {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes flip-bottom {
+  0% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+.time {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.reset-pause {
+  margin-top: 20px;
+  width: fit-content;
+  margin-inline: auto;
+}
